@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- bouton qui au clic appelle la fonction lancerAnimation360() -->
+    <button onclick="lancerAnimation360()" disabled>Lancer l'animation</button>
+
+    <img src="" alt="" id="porsche-image" width="100%">
+
+    <div style="height: 10000px;">
+
+    </div>
+
+    <script>
+
+        // initialisation de l'image de la porsche
+        const porscheImage = document.getElementById('porsche-image');
+
+        
+        index = 35; // choix de l'index de départ de l'animation
+        poscheImageSCR = ""; // variable qui contiendra l'url de l'image
+
+        porscheImage.src = "https://files.porsche.com/filestore/image/multimedia/none/971-g2-2nd-panamera-st-360-exterior-035/normal/a8e1e0f2-1d2f-11eb-80cf-005056bbdc38;sJ;twebp065/porsche-normal.webp";
+
+
+
+        /**
+         * Fonction qui lance l'animation de la porsche à 360°
+         */
+        function lancerAnimation360() {
+
+            index = 35;
+
+            // Boucle qui change d'image tous les 50ms
+            // Si l'index est supérieur à 72, on le remet à 1, pour recommencer l'animation
+            // Si l'index est égal à 7, on arrête l'animation, car on est en bout d'animation
+            anim = setInterval(function () {
+                afficherImage(index);
+                index++;
+
+                if (index == 73) {
+                    index = 1;
+                }
+
+                if (index == 7) {
+                    clearInterval(anim);
+                }
+            }, 1);
+        }
+
+        // Construction du tableau d'image
+        var images = [];
+        for (var i = 1; i < 73; i++) {
+            // si l'index est inférieur à 10, on ajoute un 0 devant
+            if (i < 10) {
+                i = "0" + i;
+            }
+            images.push("https://files.porsche.com/filestore/image/multimedia/none/971-g2-2nd-panamera-st-360-exterior-0" + i + "/normal/a8e1e0f2-1d2f-11eb-80cf-005056bbdc38;sJ;twebp065/porsche-normal.webp");
+        }
+
+        /**
+         * Fonction qui précharge une image
+         * elle renvoie une promesse qui sera résolue si l'image est chargée
+         *
+         * @param {string} url
+         * @returns {Promise}
+         */
+        var preloadImage = function (url) {
+            return new Promise(function (resolve, reject) {
+                var image = new Image();
+                image.src = url;
+                image.onload = function () {
+                    console.log("Image Loaded: " + url);
+                    resolve();
+                }
+                image.onerror = function () {
+                    console.log("Image Failed: " + url);
+                    reject();
+                }
+            });
+        };
+
+        /**
+         * Fonction qui précharge un tableau d'images
+         * elle renvoie une promesse qui sera résolue si toutes les images sont chargées
+         *
+         * @param {array} imagesUrls
+         * @returns {Promise}
+         */
+        var preloadImages = function (imageimagesUrls) {
+            var promises = [];
+            for (var i = 0; i < images.length; i++) {
+                promises.push(preloadImage(images[i]));
+            }
+            return Promise.all(promises);
+        };
+
+        // on précharge les images
+        // si elles sont toutes chargées, on active le bouton
+        preloadImages(images).then(function () {
+            console.log("All images are loaded");
+            console.info("Lancement de l'animation");
+            document.querySelector("button").disabled = false;
+            // lancerAnimation360();
+        }).catch(function (error) {
+            console.log("Error loading images:", error);
+        });
+
+
+
+
+
+        /**
+         * Fonction qui affiche l'image correspondant à l'index
+         * On récupère l'image sur le site de Porsche, et on l'affiche selon la direction du mouvement
+         * @param {number} index 
+         */
+        function afficherImage(index) {
+
+            // si l'index est inférieur à 10, on ajoute un 0 devant
+            if (index < 10) {
+                index = "0" + index;
+            }
+
+            // l'url de l'image est l'url de base + le numéro de l'image
+            poscheImageSCR = "https://files.porsche.com/filestore/image/multimedia/none/971-g2-2nd-panamera-st-360-exterior-0" + index + "/normal/a8e1e0f2-1d2f-11eb-80cf-005056bbdc38;sJ;twebp065/porsche-normal.webp";
+
+            // console.log("url construite : " + poscheImageSCR + " index : " + index);
+
+            porscheImage.src = poscheImageSCR;
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
