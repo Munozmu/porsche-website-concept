@@ -3,17 +3,48 @@
     padding: 0;
 }
 
+body {
+    background-color: #000;
+}
+
 @font-face {
     font-family: 'Apercu Bold';
     src: url("./assets/css/Apercu\ Bold.otf");
 }
 
-img {
+.background-image {
     min-width: 110%;
     min-height: 110%;
     position: absolute;
     bottom: -100px;
     right: -100px;
+}
+
+.image-animation {
+    animation: 'zoomImage' 4s ease;
+}
+
+/* on place le logo au centre de la page */
+
+.porsche-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: auto;
+    height: 100px;
+    z-index: 1;
+}
+
+/* animation de scale pour l'image */
+@keyframes zoomImage {
+    0% {
+        transform: scale(2);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 
@@ -27,6 +58,60 @@ img {
     align-items: center;
 }
 
+/* Volet d'affichage du site */
+
+.shutter {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    animation: 'shutter' 0.5s;
+}
+
+.shutter .left {
+    position: absolute;
+    height: 100vh;
+    width: 33vw;
+    background-color: #000;
+    z-index: 1;
+    left: 0;
+    animation: 'shutter' 3s ease-in-out;
+}
+
+.shutter .middle {
+    position: absolute;
+    height: 100vh;
+    width: 33vw;
+    background-color: #000;
+    z-index: 1;
+    left: 33vw;
+    animation: 'shutter' 3s ease-in-out 0.5s;
+}
+
+.shutter .right {
+    position: absolute;
+    height: 100vh;
+    width: 33vw;
+    background-color: #000;
+    z-index: 1;
+    left: 66vw;
+    animation: 'shutter' 3s ease-in-out 1s;
+}
+
+
+/* animations d'apparition des volets */
+
+@keyframes shutter {
+    0% {
+        height: 100vw;
+    }
+    100% {
+        height: 0vw;
+    }
+}
+
+
+
 
 .main-section{
     padding-left: 2vw;
@@ -39,4 +124,27 @@ img {
     text-transform: uppercase;
     font-size: 7vw;
     line-height: 80%;
+    display: flex;
+}
+
+.car-title {
+    color: #fff;
+    transform: translateY(0%);
+    opacity: 100%;
+    animation: 'car-title-spawn' 0.3s;
+}
+
+
+/* création d'une animation */
+@keyframes car-title-spawn {
+    0% {
+        color: red;
+        transform: translateY(20%);
+        opacity: 5%;
+    }
+    100% {
+        color: red;
+        transform: translateY(0%);
+        opacity: 100%;
+    }
 }

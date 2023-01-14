@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PP - WC</title>
 
     <link rel="stylesheet" href="./main.css">
 
@@ -14,7 +14,15 @@
 <body>
 
     <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/971-g2-2nd-gallery-exterior-19/zoom2/a14163c6-be31-11eb-80d7-005056bbdc38;sH;twebp065/porsche-zoom2.webp"
-        alt="" id="image">
+        alt="" id="image" class="background-image">
+
+    <img src="./assets/img/porsche-logo.png" alt="" class="porsche-logo">
+
+    <div class="shutter" id="shutter">
+        <div class="left"></div>
+        <div class="middle"></div>
+        <div class="right"></div>
+    </div>
 
     <div class="website-content" id="image-background-overlay">
         <div class="main-section">
@@ -22,7 +30,9 @@
         </div>
     </div>
 
+    <!-- Parralaxe de l'image -->
     <script>
+
         // Récupération de l'élément image
         var image = document.getElementById("image");
         var overlay = document.getElementById("image-background-overlay");
@@ -53,6 +63,7 @@
 
     </script>
 
+    <!-- Affichage des lettres -->
     <script>
         // Sélectionnez le titre
         var title = document.querySelector("h1");
@@ -61,37 +72,87 @@
         var index = 0;
         textAfficher = "Porsche Panamera";
 
-        // Utilisez setInterval pour créer une boucle d'animation
-        boucle = setInterval(function () {
+        // la boucle d'animation
 
-            // Ajoutez la prochaine lettre au titre
-            title.innerHTML += textAfficher[index];
+        // on appelle la fonction loadLetters toutes les 100ms
 
-            // augmenter la transparence de la lettre courante pour créer un effet de fondu
-            title.style.opacity = index / title.textContent.length;
+        function loadLetters() {
+            boucle = setInterval(function () {
 
-            // Incrémenter l'index pour suivre la prochaine lettre à ajouter
-            index++;
+                var span = document.createElement("span");
+                span.textContent = textAfficher[index];
 
-            console.log(index);
+                title.appendChild(span);
 
-            // Arrêter la boucle d'animation après que toutes les lettres ont été ajoutées
-            if (index > 15) {
-                clearInterval(boucle);
-            }
-            
-        }, 100);
+                span.id = index;
+                var monspan = document.getElementById(index);
+                monspan.classList.add("car-title");
 
-        function displaymainTitle() {
-            while(index <= 15) {
-                index = 15;
-            }
+                index++;
+
+                // console.log(index);
+
+                if (index > 15) {
+                    clearInterval(boucle);
+                }
+
+            }, 100);
         }
 
-        // displaymainTitle();
 
     </script>
 
+    <!-- Affichage du volet d'appartition -->
+    <script>
+        // on récupère le volet de gauche
+        var leftShutter = document.querySelector(".left");
+        var rightShutter = document.querySelector(".right");
+        var middleShutter = document.querySelector(".middle");
+
+
+        var shutterCount = 0;
+
+        leftShutter.addEventListener("animationend", function () {
+            leftShutter.parentNode.removeChild(leftShutter);
+            shutterCount++;
+            console.log(shutterCount);
+        });
+
+        middleShutter.addEventListener("animationend", function () {
+            middleShutter.parentNode.removeChild(middleShutter);
+            shutterCount++;
+            console.log(shutterCount);
+        });
+
+        rightShutter.addEventListener("animationend", function () {
+            rightShutter.parentNode.removeChild(rightShutter);
+            shutterCount++;
+            console.log(shutterCount);
+            shutterCheck();
+        });
+
+        // on vérifie si les 3 volets sont fermés, 
+        // si oui on supprime le volet
+        function shutterCheck() {
+            console.log("shutterCheck");
+            if (shutterCount === 3) {
+                console.log("ok");
+                var shutter = document.getElementById("shutter");
+                shutter.parentNode.removeChild(shutter);
+
+                // on lance l'animation des lettres
+                loadWelcomeAnimations()
+            }
+        }
+
+        function loadWelcomeAnimations() {
+            loadLetters();
+            // on ajout l'animation à l'image
+            image.classList.add("image-animation");
+        }
+
+
+    </script>
 </body>
 
 </html>
