@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT-2</title>
+
+    <link rel="stylesheet" href="./imge-360.css">
+
+</head>
+
+<body>
+
+    <div class="control-panel">
+        <button id="button-lauch-animation" disabled>Lancer l'animation</button>
+
+        <!-- point d'entré de la section -->
+        <button id="entry-point-button">Point d'entrée</button>
+
+        <!-- point clé -->
+        <button id="frameKeypoint1">Point clé #1</button>
+
+        <!-- point de sortie de la section -->
+        <button onclick="exitPointSection()">Point de sortie de l'animation</button>
+
+    </div>
+
+    <!-- Début de la section de présentation avec vue 360° -->
+    <div class="presentation360-section">
+        <div class="presentation360-container">
+
+            <img src="" alt="" class="f360-image-frame" id="porsche-image">
+
+            <div class="text-container">
+
+                <div>
+                    <!-- <h1 id="section1-title" class="title">
+                        <span style="opacity: 1;">Sur la voie de la performance.</span>
+                        <br>
+                        <span style="opacity: 1;">Sur la voie de la victoire.</span>
+                    </h1> -->
+                    <h1 id="section1-title" class="title">
+                        <span style="opacity: 1;">Performances.</span>
+                    </h1>
+
+                    <div class="description">
+                        <p class="description-text">
+                            Pour nos ingénieurs, la ligne d'arrivée ne représente qu'une étape intermédiaire. Sur la
+                            voie de
+                            l'avenir. Sur la voie de la perpétuelle recherche du dépassement de soi. Sur la voie de la
+                            performance.
+                            <br> <br>
+                            Sur la voie de la victoire.
+                        </p>
+                    </div>
+
+                    <div class="details-container">
+                        <div class="details">
+                            <h3>Moteur 6 cylindres à plat avec suralimentation par un biturbo VTG.</h3>
+                        </div>
+
+                        <div class="other-details">
+                            <div class="linked-vector">
+                                <img src="../assets/img/vector-1.png" alt="">
+                            </div>
+                            <div class="details hidden">
+                                <h3>Nouvelle boîte de vitesses Porsche Doppelkupplung (PDK) à 8 rapports.</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 10000px;">
+
+    </div>
+
+
+    <script type="module" src="./section2.js"></script>
+</body>
+
+</html>

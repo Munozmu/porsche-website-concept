@@ -8,151 +8,42 @@
     <title>PP - WC</title>
 
     <link rel="stylesheet" href="./main.css">
+    <script src="./main.js"></script>
+
 
 </head>
 
 <body>
 
-    <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/971-g2-2nd-gallery-exterior-19/zoom2/a14163c6-be31-11eb-80d7-005056bbdc38;sH;twebp065/porsche-zoom2.webp"
-        alt="" id="image" class="background-image">
-
-    <img src="./assets/img/porsche-logo.png" alt="" class="porsche-logo">
-
-    <div class="shutter" id="shutter">
-        <div class="left"></div>
-        <div class="middle"></div>
-        <div class="right"></div>
+    <!-- Page loader -->
+    <div class="website-loader-section" id="website-loader" style="display: none;">
+        <img src="./assets/img/porsche-logo.png" alt="" class="porsche-logo" onload="startExperience()" id="loader-image">
+        <p onload="alert('texte chargé');">Chargement de votre expérience</p>
     </div>
 
-    <div class="website-content" id="image-background-overlay">
-        <div class="main-section">
-            <h1 class="main-title"></h1>
+    <div id="website-content" style="display:none">
+        <div class="shutter" id="shutter">
+            <div class="left"></div>
+            <div class="middle"></div>
+            <div class="right"></div>
         </div>
+
+
+        <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/971-g2-2nd-gallery-exterior-19/zoom2/a14163c6-be31-11eb-80d7-005056bbdc38;sH;twebp065/porsche-zoom2.webp"
+            alt="" id="background-image" class="background-image">
+            
+        
+    
+        <div class="website-content" id="image-background-overlay">
+            <div class="main-section">
+                <h1 class="main-title" id="main-title"></h1>
+            </div>
+        </div>
+
     </div>
 
-    <!-- Parralaxe de l'image -->
-    <script>
-
-        // Récupération de l'élément image
-        var image = document.getElementById("image");
-        var overlay = document.getElementById("image-background-overlay");
-
-        // Ajout des écouteurs d'événements pour la souris
-        overlay.addEventListener("mousemove", changePerspective);
-        overlay.addEventListener("mouseleave", resetPerspective);
-
-        function changePerspective(event) {
-            // Récupération des coordonnées de la souris
-            var x = event.clientX;
-            var y = event.clientY;
-
-            // Calcul des transformations CSS en fonction des coordonnées de la souris
-            var transformX = (x / window.innerWidth * 5) - 2.5;
-            var transformY = (y / window.innerHeight * 5) - 2.5;
-
-            // Applique les transformations CSS à l'image
-            image.style.transform = "perspective(2000px) rotateX(" + transformY + "deg) rotateY(" + transformX + "deg)";
-        }
-
-        function resetPerspective() {
-            // Remet l'image à sa position initiale lorsque la souris quitte l'image
-            image.style.transform = "perspective(500px) rotateX(0deg) rotateY(0deg)";
-            image.style.transition = "all ease 0.2s";
-        }
 
 
-    </script>
-
-    <!-- Affichage des lettres -->
-    <script>
-        // Sélectionnez le titre
-        var title = document.querySelector("h1");
-
-        // Initialisez une variable pour suivre l'index de la prochaine lettre à ajouter
-        var index = 0;
-        textAfficher = "Porsche Panamera";
-
-        // la boucle d'animation
-
-        // on appelle la fonction loadLetters toutes les 100ms
-
-        function loadLetters() {
-            boucle = setInterval(function () {
-
-                var span = document.createElement("span");
-                span.textContent = textAfficher[index];
-
-                title.appendChild(span);
-
-                span.id = index;
-                var monspan = document.getElementById(index);
-                monspan.classList.add("car-title");
-
-                index++;
-
-                // console.log(index);
-
-                if (index > 15) {
-                    clearInterval(boucle);
-                }
-
-            }, 100);
-        }
-
-
-    </script>
-
-    <!-- Affichage du volet d'appartition -->
-    <script>
-        // on récupère le volet de gauche
-        var leftShutter = document.querySelector(".left");
-        var rightShutter = document.querySelector(".right");
-        var middleShutter = document.querySelector(".middle");
-
-
-        var shutterCount = 0;
-
-        leftShutter.addEventListener("animationend", function () {
-            leftShutter.parentNode.removeChild(leftShutter);
-            shutterCount++;
-            console.log(shutterCount);
-        });
-
-        middleShutter.addEventListener("animationend", function () {
-            middleShutter.parentNode.removeChild(middleShutter);
-            shutterCount++;
-            console.log(shutterCount);
-        });
-
-        rightShutter.addEventListener("animationend", function () {
-            rightShutter.parentNode.removeChild(rightShutter);
-            shutterCount++;
-            console.log(shutterCount);
-            shutterCheck();
-        });
-
-        // on vérifie si les 3 volets sont fermés, 
-        // si oui on supprime le volet
-        function shutterCheck() {
-            console.log("shutterCheck");
-            if (shutterCount === 3) {
-                console.log("ok");
-                var shutter = document.getElementById("shutter");
-                shutter.parentNode.removeChild(shutter);
-
-                // on lance l'animation des lettres
-                loadWelcomeAnimations()
-            }
-        }
-
-        function loadWelcomeAnimations() {
-            loadLetters();
-            // on ajout l'animation à l'image
-            image.classList.add("image-animation");
-        }
-
-
-    </script>
 </body>
 
 </html>
