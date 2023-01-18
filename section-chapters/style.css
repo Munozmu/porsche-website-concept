@@ -1,0 +1,163 @@
+@import url(../fonts-import.css);
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+
+/*  */
+:root {
+    --sidebar-width: 5%;
+    --white: #ffffff;
+}
+
+
+body {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* SECTION CHAPTER-PRESENTATION */
+.container {
+    width: 100%;
+    height: 100vh;
+
+    background: url("../assets/img/bg-dot.png") no-repeat;
+    background-size: 100% 100%;
+
+
+    display: flex;
+}
+
+/* menu latéral */
+.side-menu {
+    display: inline-block;
+    width: var(--sidebar-width);
+    height: 100%;
+    /* background-color: green; */
+}
+
+/* contenu principal */
+.main-content {
+    width: 100%;
+    height: 100%;
+}
+
+.top-datas {
+    height: 50%;
+    /* background-color: blue; */
+
+    display: flex;
+}
+
+.bottom-datas {
+    height: 50%;
+    /* background-color: orange; */
+    display: flex;
+}
+
+/* infos du chapitre */
+.chapter-infos {
+    flex: 1;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    color: #fff;
+}
+
+.chapter-infos .infos h1{
+    font-family: 'Apercu Regular';
+    font-size: 5rem;
+    margin-bottom: 0;
+}
+
+.chapter-infos .infos p{
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size: 14px
+}
+
+/* next stories pictures */
+.next-stories {
+    flex: 1;
+    padding: 3%;
+    /* background-color: white; */
+}
+
+.next {
+    height: 60%;
+    /* background-color: purple; */
+    display: flex;
+}
+
+.last {
+    height: 40%;
+    /* background-color: brown; */
+}
+
+.next .content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10%;
+    /* background-color: aquamarine; */
+}
+
+.next .content img {
+    width: 220px;
+    height: 220px;
+    border-radius: 1000px;
+}
+
+.last .content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 40%;
+    /* background-color: aquamarine; */
+}
+
+.last .content img {
+    width: 150px;
+    height: 150px;
+    border-radius: 1000px;
+}
+
+.storie-title {
+    font-family: 'Apercu Regular';
+    font-size: 1.5rem;
+    padding-left: 5%;
+    color: #fff;
+}
+
+
+/* détails histoire */
+.storie-details {
+    width: 50%;
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    padding-left: 5%;
+}
+
+.storie-details h1 {
+    font-family: 'Classico Bold';
+}
+
+.storie-details .image-description {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: rows;
+    align-items: center;
+}
+
+.image-description p {
+    padding-left: 5%;
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size: 14px;
+}

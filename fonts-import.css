@@ -4,7 +4,7 @@
 }
 @font-face {
     font-family: 'Apercu Light';
-    src: url("./assets/css/Apercu\ Light.otf");
+    src: url("./assets/css/Apercu-Light.otf");
 }
 @font-face {
     font-family: 'Apercu Medium';
@@ -22,3 +22,20 @@
     font-family: 'Apercu Thin';
     src: url("./assets/css/Apercu\ Thin.otf");
 }
+
+
+
+@font-face {
+    font-family: 'Classico Regular';;
+    src: url(./assets/css/fonts/Classico/ClassicoURW-Reg.otf);
+}
+@font-face {
+    font-family: 'Classico Bold';
+    src: url(./assets/css/fonts/Classico/ClassicoURW-Bol.otf);
+}
+@font-face {
+    font-family: 'Classico URW';
+    src: url(./assets/css/fonts/Classico/URWClassicoTOT-Bla.otf);
+}
+
+
