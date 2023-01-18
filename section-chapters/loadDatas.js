@@ -143,7 +143,7 @@ const nextChapter = (chapterID, storieID) => {
 
 }
 
-const previousChapter = (chapterID, storieID) => {
+const previousChapter = (selectedchapterID, storieID) => {
     // Gestion des erreurs
     if (chapterID < 0 || chapterID > datas.length - 1) {
         throw new Error("Le chapitre demandé à l'affichage n'existe pas.");
