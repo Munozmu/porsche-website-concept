@@ -24,10 +24,8 @@ const lastStorieTitle = document.getElementById('last-storie-title');
 const lastStorieImgPath = document.getElementById('last-storie-img-path');
 
 // changement des valeurs correspondantes au chapitre en cours
-var chapterID = 0;
+let selectedchapterID = 0;
 var storieID = 0;
-
-
 
 
 /**
@@ -37,14 +35,16 @@ var storieID = 0;
  * @param {*} storieID 
 */
 const loadDatas = (chapterID, storieID) => {
+    
 
     if (chapterID === 0) {
         menuCurrentChapter.innerHTML = datas[chapterID].subject
         menuNextChapter.innerHTML = datas[chapterID + 1].subject;
     }
-    else if (chapterID === datas.length - 1) {
-        menuPreviousChapter.innerHTML = datas[chapterID - 1].subject;
-        menuCurrentChapter.innerHTML = datas[chapterID].subject
+    else if ((chapterID >= datas.length - 1)) {
+        menuPreviousChapter.innerHTML = datas[2].subject;
+        menuCurrentChapter.innerHTML = datas[3].subject
+        menuNextChapter.innerHTML = "";
     }
     else {
         menuPreviousChapter.innerHTML = datas[chapterID - 1].subject;
@@ -67,8 +67,18 @@ const loadDatas = (chapterID, storieID) => {
 
 
 
+/**
+ * Fonction permettant d'afficher les données à l'écran,
+ * correspondant au chapitre et à l'histoire en cours.
+ * Avec les animations.
+ * 
+ * Fait appel à la fonction loadDatas() pour afficher les données.
+ * @param {*} chapterID 
+ * @param {*} storieID 
+ */
+const displayDatas = (chapterID, storieID) => {
 
-const displayDatas = () => {
+    console.info("Les données sont affichées.");
 
     // animation des infos du chapitre
     chapterTitle.style.animation = "fadeIn 2s ease-in 0s 1 normal forwards";
@@ -79,16 +89,78 @@ const displayDatas = () => {
     storieImage.style.animation = "clipTop 1s ease-in-out 0s 1 normal forwards";
 
     // affichage des prochains chapitres
-    nextStorieTitle.style.animation = "fadeInLeft 3s ease-out 0s 1 normal forwards";
-    nextStorieImgPath.style.animation = "clipTop 3s ease-out 0s 1 normal forwards";
+    nextStorieTitle.style.animation = "fadeInLeft 2s ease-out 0s 1 normal forwards";
+    nextStorieImgPath.style.animation = "clipTop 2s ease-out 0s 1 normal forwards";
 
-    lastStorieTitle.style.animation = "fadeInLeft 3s ease-out 0s 1 normal forwards";
-    lastStorieImgPath.style.animation = "clipTop 3s ease-out 0s 1 normal forwards";
+    lastStorieTitle.style.animation = "fadeInLeft 2s ease-out 0s 1 normal forwards";
+    lastStorieImgPath.style.animation = "clipTop 2s ease-out 0s 1 normal forwards";
 
     loadDatas(chapterID, storieID);
+}
+
+const hiddedatas = (chapterID, storieID) => {
+
+    console.info("Les données sont masquées.");
+
+    // animation des infos du chapitre
+    chapterTitle.style.animation = "fadeOut 1s ease-in 0s 1 normal forwards";
+    chapterDescription.style.animation = "fadeOut 1s ease-in-out 0s 1 normal forwards";
+
+    storieTitle.style.animation = "fadeOutDownSmooth 1s ease-in-out 0s 1 normal forwards";
+    storieDescription.style.animation = "fadeOutRight 1s ease-in-out 0s 1 normal forwards";
+    storieImage.style.animation = "clipBottom 1s ease-in-out 0s 1 normal forwards";
+
+    // affichage des prochains chapitres
+    nextStorieTitle.style.animation = "fadeOutLeft 1s ease-out 0s 1 normal forwards";
+    nextStorieImgPath.style.animation = "clipBottom 1s ease-out 0s 1 normal forwards";
+
+    lastStorieTitle.style.animation = "fadeOutLeft 1s ease-out 0s 1 normal forwards";
+    lastStorieImgPath.style.animation = "clipBottom 1s ease-out 0s 1 normal forwards";
+
+    
+    loadDatas(chapterID, storieID);
+
+    return true;
 }
 
 
 
 
-displayDatas();
+displayDatas(selectedchapterID, storieID);
+
+const nextChapter = (chapterID, storieID) => {
+
+    // Gestion des erreurs
+    if (chapterID < 0 || chapterID > datas.length - 1) {
+        throw new Error("Le chapitre demandé à l'affichage n'existe pas.");
+    }
+
+    hiddedatas(chapterID, storieID);
+    selectedchapterID++;
+    setTimeout(() => {
+        displayDatas(selectedchapterID, storieID);
+    }, 1000);
+
+}
+
+const previousChapter = (chapterID, storieID) => {
+    // Gestion des erreurs
+    if (chapterID < 0 || chapterID > datas.length - 1) {
+        throw new Error("Le chapitre demandé à l'affichage n'existe pas.");
+    }
+
+    hiddedatas(chapterID, storieID);
+    selectedchapterID--;
+    setTimeout(() => {
+        displayDatas(selectedchapterID, storieID);
+    }, 1000);
+};
+
+
+// displayDatas on changeChapter button click
+document.getElementById('nextChapter').addEventListener('click', () => {
+    console.info(nextChapter(selectedchapterID, storieID));
+});
+document.getElementById('previousChapter').addEventListener('click', () => {
+    console.info(previousChapter(selectedchapterID, storieID));
+});

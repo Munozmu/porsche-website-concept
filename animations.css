@@ -44,6 +44,16 @@
     }
 }
 
+/* fadeOut */
+@keyframes fadeOut {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 /* animation fadeInRight */
 @keyframes fadeInRight {
     0% {
@@ -53,6 +63,17 @@
     100% {
         opacity: 100%;
         transform: translateX(0%);
+    }
+}
+
+@keyframes fadeOutRight {
+    0% {
+        opacity: 100%;
+        transform: translateX(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(10%);
     }
 }
 
@@ -66,6 +87,18 @@
         opacity: 100%;
         transform: translateX(0%);
     }
+}
+
+@keyframes fadeOutLeft {
+    0% {
+        opacity: 100%;
+        transform: translateX(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    
 }
     
 

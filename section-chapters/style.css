@@ -178,3 +178,22 @@ body {
         clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
     }
 }
+
+@keyframes clipBottom {
+    from {
+
+
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+    }
+
+    to {
+
+
+        -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+
+    }
+
+}
