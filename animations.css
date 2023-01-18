@@ -14,11 +14,7 @@
 @keyframes fadeInUpSmooth {
     0% {
         opacity: 0;
-        transform: translateY(70%);
-    }
-    50% {
-        opacity: 5%;
-        transform: translateY(30%);
+        transform: translateY(20%);
     }
     100% {
         opacity: 100%;
@@ -33,9 +29,10 @@
     }
     100% {
         opacity: 0;
-        transform: translateY(-70%);
+        transform: translateY(-20%);
     }
 }
+    
 
 /* animation fadeIn */
 @keyframes fadeIn {
@@ -46,6 +43,31 @@
         opacity: 100%;
     }
 }
+
+/* animation fadeInRight */
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10%);
+    }
+    100% {
+        opacity: 100%;
+        transform: translateX(0%);
+    }
+}
+
+/* animation fadeInLeft */
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    100% {
+        opacity: 100%;
+        transform: translateX(0%);
+    }
+}
+    
 
 /* animation de scale pour l'image */
 @keyframes zoomImage {

@@ -10,35 +10,35 @@
     <script src="./chapters.js"></script>
     <link rel="stylesheet" href="./style.css">
 
+    <script type="module" src="./loadDatas.js"></script>
+
     <div class="container">
 
         <div class="side-menu">
-            <p>Aérodynamisme et design</p>
-            <p>Aérodynamisme et design</p>
+            <p id="menu-previous-chapter"></p>
+            <p id="menu-current-chapter"></p>
+            <p id="menu-next-chapter"></p>
         </div>
 
         <div class="main-content">
             <div class="top-datas">
                 <div class="chapter-infos">
                     <div class="infos">
-                        <h1>La forme suit le sens du vent</h1>
-                        <p>Le vent de face est un défi majeur pour améliorer les temps au tour. La nouvelle 911 GT3 RS
-                            optimise le flux avec chaque composant. Pour garantir un coefficient de traînée minimum, la
-                            partie arrière est en deux éléments, avec sorties d’air agrandies, une ventilation derrière
-                            l’aileron arrière et un diffuseur.</p>
+                        <h1 id="chapter-title"></h1>
+                        <p id="chapter-description"></p>
                     </div>
                 </div>
                 <div class="next-stories">
                     <div class="last">
                         <div class="content">
-                            <img src="../assets/img/example.png" alt="">
-                            <h3 class="storie-title">+40kg d'appui</h3>
+                            <img id="last-storie-img-path" alt="">
+                            <h3 class="storie-title" id="last-storie-title"></h3>
                         </div>
                     </div>
                     <div class="next">
                         <div class="content">
-                            <img src="../assets/img/example.png" alt="">
-                            <h3 class="storie-title">+40kg d'appui</h3>
+                            <img id="next-storie-img-path" alt="">
+                            <h3 class="storie-title" id="next-storie-title"></h3>
                         </div>
                     </div>
                 </div>
@@ -46,15 +46,11 @@
             <div class="bottom-datas">
                 <div class="storie-details">
                     <div>
-                        <h1>Appui optimisé</h1>
+                        <h1 id="current-storie-title"></h1>
                     </div>
                     <div class="image-description">
-                        <img src="../assets/img/example.png" alt="">
-                        <p>La nouvelle 911 GT3 RS devrait s’adjuger des records au tour, grâce à un aérodynamisme
-                            largement révisé et un appui renforcé. Le système Porsche Active Aerodynamics (PAA) avec DRS
-                            utilise toutes les données du véhicule, comme l’accélération, la position de la pédale
-                            d’accélérateur et de frein, pour adapter automatiquement et rapidement la position de
-                            l’aileron arrière, ainsi que celle du diffuseur avant réglable selon la situation.</p>
+                        <img src="../assets/img/example.png" id="current-storie-img-path" alt="">
+                        <p id="current-storie-description"></p>
                     </div>
                 </div>
             </div>
