@@ -26,6 +26,7 @@ const lastStorieImgPath = document.getElementById('last-storie-img-path');
 // changement des valeurs correspondantes au chapitre en cours
 let selectedchapterID = 0;
 var storieID = 0;
+var selectedStorieID = 0;
 
 
 /**
@@ -161,7 +162,6 @@ const nextChapter = (chapterID, storieID) => {
     }
 
 }
-
 const previousChapter = (chapterID, storieID) => {
 
     // Gestion des erreurs
@@ -178,6 +178,54 @@ const previousChapter = (chapterID, storieID) => {
 
 };
 
+/**
+ * Fonction qui permet de changer la storie sur le même chapitre.
+ * @param {*} storieID 
+ */
+const changeStorie = (storieID) => {
+
+    // on masque les éléments qui changent
+    storieTitle.style.animation = "fadeOutDownSmooth 1s ease-in-out 0s 1 normal forwards";
+    storieImage.style.animation = "clipBottom 1s ease-in-out 0s 1 normal forwards";
+    storieDescription.style.animation = "fadeOutRight 1s ease-in-out 0s 1 normal forwards";
+
+    
+    // on affiche les éléments qui changent
+    setTimeout(() => {
+        // on change le contenu des éléments qui changent
+        storieTitle.innerHTML = datas[selectedchapterID].stories[storieID].title;
+        storieImage.src = datas[selectedchapterID].stories[storieID].imgPath;
+        storieDescription.innerHTML = datas[selectedchapterID].stories[storieID].description;
+
+
+        storieTitle.style.animation = "fadeInUpSmooth 1s ease-in-out 0s 1 normal forwards";
+        storieImage.style.animation = "clipTop 1s ease-in-out 0s 1 normal forwards";
+        storieDescription.style.animation = "fadeInRight 1s ease-in-out 0s 1 normal forwards";
+    }, 1000);
+}
+
+const nextStorie = (chapterID, storieID) => {
+    if (storieID > datas[chapterID].stories.length - 2) {
+        return 0;
+    }
+    else {
+        changeStorie(selectedStorieID + 1);
+        selectedStorieID++;
+    }
+}
+
+const previousStorie = (chapterID, storieID) => {
+    if (storieID <= 0) {
+        return 0;
+    }
+    else {
+        changeStorie(selectedStorieID - 1);
+        selectedStorieID--;
+    }
+}
+
+
+
 
 // displayDatas on changeChapter button click
 document.getElementById('nextChapter').addEventListener('click', () => {
@@ -186,3 +234,10 @@ document.getElementById('nextChapter').addEventListener('click', () => {
 document.getElementById('previousChapter').addEventListener('click', () => {
     console.info(previousChapter(selectedchapterID, storieID));
 });
+
+document.getElementById('nextStorie').addEventListener('click', () => {
+    console.info(nextStorie(selectedchapterID, selectedStorieID));
+});
+document.getElementById('previousStorie').addEventListener('click', () => {
+    console.info(previousStorie(selectedchapterID, selectedStorieID));
+} );
