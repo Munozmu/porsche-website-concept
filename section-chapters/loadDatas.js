@@ -35,9 +35,16 @@ var storieID = 0;
  * @param {*} storieID 
 */
 const loadDatas = (chapterID, storieID) => {
-    
+
+    // cas d'erreur 
+    if (chapterID < 0 || chapterID > datas.length - 1) {
+        throw new Error("Le chapitre n'existe pas.");
+    }
+
+    console.info("Chapitre actuel : " + chapterID);    
 
     if (chapterID === 0) {
+        menuPreviousChapter.innerHTML = "";
         menuCurrentChapter.innerHTML = datas[chapterID].subject
         menuNextChapter.innerHTML = datas[chapterID + 1].subject;
     }
@@ -78,24 +85,31 @@ const loadDatas = (chapterID, storieID) => {
  */
 const displayDatas = (chapterID, storieID) => {
 
-    console.info("Les données sont affichées.");
-
+    
     // animation des infos du chapitre
     chapterTitle.style.animation = "fadeIn 2s ease-in 0s 1 normal forwards";
     chapterDescription.style.animation = "fadeIn 2s ease-in-out 0s 1 normal forwards";
-
+    
     storieTitle.style.animation = "fadeInUpSmooth 1s ease-in-out 0s 1 normal forwards";
     storieDescription.style.animation = "fadeInRight 1s ease-in-out 0s 1 normal forwards";
     storieImage.style.animation = "clipTop 1s ease-in-out 0s 1 normal forwards";
-
-    // affichage des prochains chapitres
+    
+    // affichage des prochains chapitres dans le menu latéral
     nextStorieTitle.style.animation = "fadeInLeft 2s ease-out 0s 1 normal forwards";
     nextStorieImgPath.style.animation = "clipTop 2s ease-out 0s 1 normal forwards";
-
+    
     lastStorieTitle.style.animation = "fadeInLeft 2s ease-out 0s 1 normal forwards";
     lastStorieImgPath.style.animation = "clipTop 2s ease-out 0s 1 normal forwards";
+    
+    try {
+        loadDatas(chapterID, storieID);
+    }
+    catch (error) {
+        console.error("Erreur dans l'affichage des données du chapitre : ", error);
+    }
+    
 
-    loadDatas(chapterID, storieID);
+    console.info("Les données sont affichées.");
 }
 
 const hiddedatas = (chapterID, storieID) => {
@@ -131,29 +145,33 @@ displayDatas(selectedchapterID, storieID);
 const nextChapter = (chapterID, storieID) => {
 
     // Gestion des erreurs
-    if (chapterID < 0 || chapterID > datas.length - 1) {
-        throw new Error("Le chapitre demandé à l'affichage n'existe pas.");
+    if (selectedchapterID > datas.length - 2) {
+        return 0;
     }
-
-    hiddedatas(chapterID, storieID);
-    selectedchapterID++;
-    setTimeout(() => {
-        displayDatas(selectedchapterID, storieID);
-    }, 1000);
+    else {
+        hiddedatas(chapterID, storieID);
+        selectedchapterID++;
+        setTimeout(() => {
+            displayDatas(selectedchapterID, storieID);
+        }, 1000);
+    }
 
 }
 
-const previousChapter = (selectedchapterID, storieID) => {
+const previousChapter = (chapterID, storieID) => {
+
     // Gestion des erreurs
-    if (chapterID < 0 || chapterID > datas.length - 1) {
-        throw new Error("Le chapitre demandé à l'affichage n'existe pas.");
+    if (selectedchapterID <= 0) {
+        return 0;
+    }
+    else {
+        hiddedatas(chapterID, storieID);
+        selectedchapterID--;
+        setTimeout(() => {
+            displayDatas(selectedchapterID, storieID);
+        }, 1000);
     }
 
-    hiddedatas(chapterID, storieID);
-    selectedchapterID--;
-    setTimeout(() => {
-        displayDatas(selectedchapterID, storieID);
-    }, 1000);
 };
 
 

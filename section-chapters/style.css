@@ -38,6 +38,10 @@ body {
     /* background-color: green; */
 }
 
+.side-menu .active {
+    color: red;
+}
+
 /* contenu principal */
 .main-content {
     width: 100%;
