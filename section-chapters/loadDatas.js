@@ -67,9 +67,13 @@ const loadDatas = (chapterID, storieID) => {
     storieDescription.innerHTML = datas[chapterID].stories[storieID].description;
 
     nextStorieTitle.innerHTML = datas[chapterID].stories[storieID + 1].title;
-    nextStorieImgPath.src = datas[chapterID].stories[storieID + 1].imgPath;
+    nextStorieImgPath.style.backgroundImage = "url(" + datas[chapterID].stories[storieID + 1].imgPath + ")";
     lastStorieTitle.innerHTML = datas[chapterID].stories[storieID + 2].title;
-    lastStorieImgPath.src = datas[chapterID].stories[storieID + 2].imgPath;
+
+    // on change le background-image de lastStorieImgPath
+    lastStorieImgPath.style.backgroundImage = "url(" + datas[chapterID].stories[storieID + 2].imgPath + ")";
+
+    storieImage.src = datas[chapterID].stories[storieID].imgPath;
 }
 
 
