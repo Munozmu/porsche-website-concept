@@ -4,6 +4,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
+
+
 /* ================== */
 /* Main website style */
 /* ================== */
@@ -106,3 +108,38 @@ body {
     text-transform: uppercase;
     white-space: nowrap;
 }
+
+
+/* ================ */
+/* CHAPTERS SECTION */
+/* ================ */
+.sct-chapters {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    position: relative;
+}
+
+.navbar {
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+  }
+  
+  .navbar-item {
+    padding: 20px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
