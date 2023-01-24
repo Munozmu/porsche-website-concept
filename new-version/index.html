@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./sct-welcome-style.css">
     <link rel="stylesheet" href="./sct-chapters-style.css">
     <link rel="stylesheet" href="./sct-360-style.css">
+    <link rel="stylesheet" href="./sct-start-vehicle-style.css">
     <link rel="stylesheet" href="./main.css">
 
 
@@ -168,8 +169,53 @@
                 </div>
             </section>
             <section class="sct-transition-start">
-                transition
+                <div class="end-360">
+                    <img src="../assets/img/final-state-360.png" alt="">
+                </div>
+                <div class="vehicle-start">
+                    <div class="overlay">
+                        <h1 class="title">Prêt à démarrer ?</h1>
+                        <button id="start-btn">Démarrer</button>
+                    </div>
+                    <img src="../assets/img/start-image.png" alt="" id="start-image">
+
+                    <video muted="true" disablePictureInPicture id="start-vehicle-video">
+                        <source src="../assets/videos/racetrack-teaser.mp4" type="video/mp4">
+                    </video>
+
+
+                </div>
             </section>
+            <script>
+                // on supprime la div end-360
+                const end360 = document.querySelector('.end-360');
+                const vehicleStart = document.querySelector('.vehicle-start');
+                end360.remove();
+
+                // on affiche la div vehicle-start
+                vehicleStart.style.display = 'block';
+
+                const startImage = document.getElementById('start-image');
+                const startVehicleVideo = document.querySelector('#start-vehicle-video');
+
+
+
+                // on lance la vidéo
+                startVehicleVideo.play();
+
+                // au clic du bouton start
+                const startBtn = document.querySelector('#start-btn');
+                startBtn.addEventListener('click', () => {
+
+                    console.log('click');
+
+                    startImage.remove();
+
+                    startVehicleVideo.style.display = 'block';
+                    startVehicleVideo.play();
+
+                });
+            </script>
         </div>
     </div>
 
