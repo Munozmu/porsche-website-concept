@@ -1,3 +1,8 @@
+@import url(../assets/css/animations.css);
+@import url(../assets/css/fonts-import.css);
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap");
+
+
 body {
     margin: 0;
     padding: 0;
@@ -46,20 +51,26 @@ body {
 
 /* text content */
 
-.sct-welcome__text-content h1, h3, p {
+.sct-welcome__text-content h1,
+h3,
+p {
     margin: 0;
 }
+
 .sct-welcome__text-content {
     margin-bottom: 20px;
 }
+
 .sct-welcome__new-title {
     color: #DB4836;
 }
+
 .sct-welcome__title {
     color: #fff;
     font-size: 4rem;
     font-weight: bold;
 }
+
 .sct-welcome__subtitle {
     color: #fff;
     font-size: 1.5rem;
@@ -74,6 +85,7 @@ body {
     justify-content: center;
     width: 100%;
 }
+
 .sct-welcome__details-item {
     padding: 20px;
 }
@@ -101,6 +113,7 @@ body {
     overflow-x: scroll;
     padding-left: 10vw;
 }
+
 .sct-banner__illustraion-title {
     font-size: 5rem;
     font-weight: bold;
@@ -122,7 +135,9 @@ body {
     position: relative;
 }
 
-.navbar {
+/* NAVBAR */
+
+.sct-chapter__navbar {
     transform: rotate(-90deg);
     transform-origin: top left;
     display: flex;
@@ -132,14 +147,157 @@ body {
     left: 0;
     bottom: 0;
     z-index: 3;
-  }
-  
-  .navbar-item {
+}
+
+.sct-chapter__navbar-item {
     padding: 20px;
-    color: #fff;
-    font-size: 1rem;
+    color: #aeb0b4;
+    opacity: 0.3;
+    font-size: 0.8rem;
     font-weight: lighter;
     text-transform: uppercase;
     text-decoration: none;
     transition: all 0.3s ease;
-  }
+    padding-bottom: 8px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0 20px;
+}
+
+.active {
+    color: #aeb0b4;
+    opacity: 1;
+    border-bottom: 1px solid #c11521;
+}
+
+
+/* CONTENU SECTION */
+.sct-chapter__content {
+    width: 100%;
+    height: 100%;
+
+    background: url("../assets/img/bg-dot.png") no-repeat;
+    background-size: 100% 100%;
+
+}
+
+/* intégration d'un contenu mauvais */
+.sct-chapter__content-top-datas {
+    height: 50%;
+
+    display: flex;
+}
+
+.sct-chapter__content-bottom-datas {
+    height: 50%;
+    display: flex;
+}
+
+/* infos du chapitre */
+.sct-chapter__content-chapter-infos {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    color: #fff;
+}
+
+.sct-chapter__content-chapter-infos .sct-chapter__content-infos h1 {
+    font-family: 'Classico URW';
+    font-size: 5rem;
+    margin-bottom: 0;
+}
+
+.sct-chapter__content-chapter-infos .sct-chapter__content-infos p {
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size: 14px;
+}
+
+/* next stories pictures */
+.sct-chapter__content-next-stories {
+    flex: 2;
+    padding: 3%;
+}
+
+.sct-chapter__content-next {
+    height: 60%;
+    display: flex;
+}
+
+.sct-chapter__content-last {
+    height: 40%;
+}
+
+.sct-chapter__content-next .sct-chapter__content-content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.sct-chapter__content-image-test-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: url("../assets/img/c0-sto1.webp");
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+}
+
+.sct-chapter__content-last .sct-chapter__content-content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 40%;
+}
+
+.sct-chapter__content-last .sct-chapter__content-content img {
+    width: 150px;
+    height: 150px;
+    border-radius: 1000px;
+}
+
+.sct-chapter__content-storie-title {
+    font-family: 'Apercu Regular';
+    font-size: 1.5rem;
+    padding-left: 5%;
+    color: #fff;
+}
+
+
+/* détails histoire */
+.sct-chapter__content-storie-details {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    padding-left: 5%;
+}
+
+.sct-chapter__content-storie-details h1 {
+    font-family: 'Lato';
+    font-weight: 700;
+}
+
+.sct-chapter__content-storie-details .sct-chapter__content-image-description {
+    display: flex;
+    flex-direction: rows;
+    align-items: center;
+}
+
+.sct-chapter__content-image-description p {
+    padding-left: 5%;
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.sct-chapter__content-storieImage {
+    max-width: 60%;
+}
+

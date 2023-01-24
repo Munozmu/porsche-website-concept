@@ -1,41 +1,40 @@
 @font-face {
     font-family: 'Apercu Bold';
-    src: url("./assets/css/Apercu\ Bold.otf");
+    src: url("../fonts/Apercu/Apercu\ Bold.otf");
 }
+
 @font-face {
     font-family: 'Apercu Light';
-    src: url("./assets/css/Apercu-Light.otf");
+    src: url("../fonts/Apercu/Apercu-Light.otf");
 }
+
 @font-face {
     font-family: 'Apercu Medium';
-    src: url("./assets/css/Apercu\ Medium.otf");
+    src: url("../fonts/Apercu/Apercu\ Medium.otf");
 }
+
 @font-face {
     font-family: 'Apercu Regular';
-    src: url("./assets/css/Apercu\ Regular.otf");
+    src: url("../fonts/Apercu/Apercu\ Regular.otf");
 }
+
 @font-face {
     font-family: 'Apercu Semibold';
-    src: url("./assets/css/Apercu\ Semibold.otf");
+    src: url("../fonts/Apercu/Apercu\  Semibold.otf");
 }
-@font-face {
-    font-family: 'Apercu Thin';
-    src: url("./assets/css/Apercu\ Thin.otf");
-}
-
 
 
 @font-face {
-    font-family: 'Classico Regular';;
-    src: url(./assets/css/fonts/Classico/ClassicoURW-Reg.otf);
+    font-family: 'Classico Regular';
+    src: url(../fonts/Classico/ClassicoURW-Reg.otf);
 }
+
 @font-face {
     font-family: 'Classico Bold';
-    src: url(./assets/css/fonts/Classico/ClassicoURW-Bol.otf);
+    src: url(../fonts/Classico/ClassicoURW-Bol.otf);
 }
+
 @font-face {
     font-family: 'Classico URW';
-    src: url(./assets/css/fonts/Classico/URWClassicoTOT-Bla.otf);
+    src: url(../fonts/Classico/URWClassicoTEEMed.ttf);
 }
-
-
