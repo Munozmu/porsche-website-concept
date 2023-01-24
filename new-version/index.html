@@ -187,16 +187,21 @@
                 </div>
             </section>
             <script>
-                // on supprime la div end-360
                 const end360 = document.querySelector('.end-360');
                 const vehicleStart = document.querySelector('.vehicle-start');
-                end360.remove();
+                const startVehicleVideo = document.querySelector('#start-vehicle-video');
+                const startImage = document.getElementById('start-image');
+
+                setTimeout(() => {
+                    // on supprime la div end-360
+                    end360.remove();
+                }, 1000);
 
                 // on affiche la div vehicle-start
-                vehicleStart.style.display = 'block';
+                setTimeout(() => {
+                    vehicleStart.style.display = 'block';
+                }, 1000);
 
-                const startImage = document.getElementById('start-image');
-                const startVehicleVideo = document.querySelector('#start-vehicle-video');
 
 
 
