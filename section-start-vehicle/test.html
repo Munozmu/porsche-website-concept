@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script type="text/javascript" src="./assets/js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="./assets/js/lib/highlight.pack.js"></script>
+	<script type="text/javascript" src="./assets/js/lib/modernizr.custom.min.js"></script>
+	<script type="text/javascript" src="./assets/js/examples.js"></script>
+	
+	<script type="text/javascript" src="./assets/js/lib/velocity.min.js"></script>
+	<script type="text/javascript" src="./scrollmagic/uncompressed/ScrollMagic.js"></script>
+	<script type="text/javascript" src="./scrollmagic/uncompressed/plugins/animation.velocity.js"></script>
+	<script type="text/javascript" src="./scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+
+
+</head>
+
+<body>
+
+    <section id="animation" style="height: 10000px;">
+        <div class="box1 blue">
+            <p id="pin">Scroll down to see me fade out...</p>
+            <a href="#" class="viewsource">view source</a>
+        </div>
+
+        <div id="trigger" style="height: 100px;"></div>
+
+        <div id="animate">
+            <p style="font-size: 4rem; transform: translateX(0)">PORSCHE MACAN</p>
+        </div>
+    </section>
+
+    <script>
+        // init controller
+        var controller = new ScrollMagic.Controller();
+
+        // build scene
+        var scene = new ScrollMagic.Scene({
+            triggerElement: "#animation",
+            duration: 1000
+        })
+            // trigger a velocity opaticy animation
+            .setPin("#pin")
+            .addIndicators({ name: "1 (duration: 300)" })
+            .addTo(controller);
+
+
+        var scene2 = new ScrollMagic.Scene({
+            triggerElement: "#trigger"
+        })
+            // trigger a velocity opaticy animation
+            .setVelocity("#animate", { color: "#ffffff"  }, { duration: 2000 })
+            .addIndicators({ name: "deuxcième anim" }) // add indicators (requires plugin)
+            .addTo(controller);
+
+    </script>
+
+    </div>
+
+</body>
+
+</html>
