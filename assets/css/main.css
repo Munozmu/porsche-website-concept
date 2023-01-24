@@ -1,6 +1,8 @@
 @import url(animations.css);
 @import url(fonts-import.css);
 
+/* Design file for index.html */
+
 
 
 * {
@@ -10,6 +12,7 @@
 
 body {
     background-color: #000;
+    overflow-x: hidden;
 }
 
 
@@ -111,7 +114,8 @@ body {
 }
 
 .main-section{
-    padding-left: 2vw;
+    padding-left: 10%;
+    padding-top: 10%;
 
 }
 

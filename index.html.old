@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PP - WC</title>
+    <title>Accueil</title>
 
     <link rel="stylesheet" href="./assets/css/main.css">
     <script src="./assets/js/main.js"></script>
@@ -22,13 +23,15 @@
         <p onload="alert('texte chargé');">Chargement de votre expérience</p>
     </div>
 
+    <!-- Main container of website content -->
     <div id="website-content" style="display:none">
+
+        <!-- Shutter animation for load -->
         <div class="shutter" id="shutter">
             <div class="left"></div>
             <div class="middle"></div>
             <div class="right"></div>
         </div>
-
 
         <img src="./assets/img/porsche-zoom-illustration.png" alt="" id="background-image" class="background-image">
 
@@ -36,6 +39,7 @@
 
         <div class="website-content" id="image-background-overlay">
             <div class="main-section">
+                <p>Nouvelle</p>
                 <h1 class="main-title" id="main-title"></h1>
             </div>
         </div>

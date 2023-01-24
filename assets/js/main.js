@@ -23,6 +23,9 @@ function startExperience() {
     displayLoader();
 }
 
+/**
+ * Fonction qui affiche le loader
+ */
 function displayLoader() {
     var loader = document.getElementById("website-loader");
     loader.style.display = "block";
@@ -32,12 +35,22 @@ function displayLoader() {
 
 }
 
+/**
+ * Fonction qui masque le loader
+ */
 function hiddeLoader() {
     var loader = document.getElementById("website-loader");
     loader.style.display = "none";
 }
 
-
+/**
+ * Fonction qui affiche le contenu de la page
+ * 
+ * - On cache le loader
+ * - On affiche le contenu de la page
+ * - On lance les animations
+ * 
+ */
 function loadWebsiteContent() {
 
     console.info("tout le contenu est chargé");
@@ -49,16 +62,18 @@ function loadWebsiteContent() {
     // Affiche le contenu de la page
     document.getElementById("website-content").style.display = "block";
 
-
-
-
-
+    // Prépare l'effet de perspective sur l'image de fond
     var image = document.getElementById("background-image");
     var overlay = document.getElementById("image-background-overlay");
 
     overlay.addEventListener("mousemove", changePerspective); // gestion des évènements à la souris
     overlay.addEventListener("mouseleave", resetPerspective);
 
+    /**
+     * Fonction permettant de changer la perspective de l'image de fond, 
+     * en fonction de la position de la souris
+     * @param {number} event 
+     */
     function changePerspective(event) {
         var x = event.clientX;
         var y = event.clientY;
@@ -69,19 +84,22 @@ function loadWebsiteContent() {
         image.style.transform = "perspective(2000px) rotateX(" + transformY + "deg) rotateY(" + transformX + "deg)";
     }
 
+    /**
+     * Permet de remettre à zéro la perspective de l'image de fond
+     */
     function resetPerspective() {
-        // Remet l'image à sa position initiale lorsque la souris quitte l'image
         image.style.transform = "perspective(500px) rotateX(0deg) rotateY(0deg)";
         image.style.transition = "all ease 0.2s";
     }
 
+
     /*
-*   Affiche le titre principal lettre par lettre
-*/
+    *   Affiche le titre principal lettre par lettre
+    */
     function letterAnimation() {
 
         var index = 0;
-        textAfficher = "Porsche Panamera";
+        textAfficher = "911 GT3 RS";
 
         var title = document.getElementById("main-title");
 
@@ -142,8 +160,9 @@ function loadWebsiteContent() {
         shutterCheck();
     });
 
-    // on vérifie si les 3 volets sont fermés, 
-    // si oui on supprime le volet
+    /**
+     * Fonction qui vérifie si les 3 volets sont fermés
+     */
     function shutterCheck() {
         console.log("shutterCheck");
         if (shutterCount === 3) {
@@ -156,6 +175,9 @@ function loadWebsiteContent() {
         }
     }
 
+    /** 
+     * Fonction lancée après le chargement du contenu de la page
+    */
     function loadWelcomeAnimations() {
         letterAnimation();
         // on ajout l'animation à l'image
