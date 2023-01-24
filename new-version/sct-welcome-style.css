@@ -1,0 +1,76 @@
+/* =============== */
+/* WELCOME SECTION */
+/* =============== */
+
+.sct-welcome__illustration {
+    position: relative;
+    flex: 1;
+}
+
+.sct-welcome {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sct-welcome__content {
+    position: absolute;
+    /* bottom permet de placer le texte plutôt en bas */
+    bottom: 100px;
+    z-index: 1;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* text content */
+
+.sct-welcome__text-content h1,
+h3,
+p {
+    margin: 0;
+}
+
+.sct-welcome__text-content {
+    margin-bottom: 20px;
+}
+
+.sct-welcome__new-title {
+    color: #DB4836;
+}
+
+.sct-welcome__title {
+    color: #fff;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.sct-welcome__subtitle {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+/* vehicle details */
+
+.sct-welcome__details {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.sct-welcome__details-item {
+    padding: 0 10%;
+}
+
+.sct-welcome__details-item-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sct-welcome__details-item-value {
+    font-size: 13px;
+}
